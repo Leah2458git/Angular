@@ -8,8 +8,16 @@ import { Student } from '../student.model';
 export class StudentListComponent {
 
     students:Student[]=[{id:1,name:"student1"},{id:2,name:"student2"},{id:3,name:"student3"}]
+    
     deleteStudent(student:Student){
       let indexToDelete=this.students.indexOf(student);
       this.students.splice(indexToDelete,1);
+    }
+    
+    selectedStudent!:Student;
+
+    showDetails(student:Student){
+      this.selectedStudent=student
+
     }
 }

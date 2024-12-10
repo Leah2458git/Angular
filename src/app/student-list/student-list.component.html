@@ -5,11 +5,17 @@
             <div class="col-1">{{student.id}}</div>
             <div class="col-3">{{student.name}}</div>
             <div class="col-2">
+                <button (click)="showDetails(student)">Show Details</button>
+            </div>
+            <div class="col-2">
                 <button (click)="deleteStudent(student)">Delete Student</button>
-
             </div>
 
         </div>
          
      </li>
 </ul> 
+
+<br/>
+<student-details [student]="selectedStudent"></student-details>
+
