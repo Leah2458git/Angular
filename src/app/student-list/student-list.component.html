@@ -17,5 +17,10 @@
 </ul> 
 
 <br/>
-<student-details [student]="selectedStudent"></student-details>
+
+<button class="btn btn-primary" (click)="showNewStudentDetails()">Add New Student</button>
+
+<br/>
+
+<student-details [student]="selectedStudent" (onSaveNewStudent)="addNewStudentToList($event)"></student-details>
 

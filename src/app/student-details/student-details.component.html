@@ -1,11 +1,20 @@
 
 <div class="card" *ngIf="student">
     <div class="card-body">
-        student details:
-        <br/>
-        {{student.id}}
-        <br/>
-        {{student.name}}
+        <!-- <form> -->
+            <div class="form-group">
+                <label for="name">Student name:</label>
+                <input type="text" class="form-control" id="name" [value]="student.name">
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="description">Student description:</label>
+                <input type="text" class="form-control" id="description" [value]="student.description">
+            </div>
+            <br/>
+            <button class="btn btn-primary" (click)="saveNewStudent()">Save</button>
+        <!-- </form> -->
+       
     </div>
 
 </div>
