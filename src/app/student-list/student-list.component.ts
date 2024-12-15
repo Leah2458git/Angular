@@ -7,7 +7,10 @@ import { Student } from '../student.model';
 })
 export class StudentListComponent {
 
-    students:Student[]=[{id:1,name:"student1",description:"aaa"},{id:2,name:"student2",description:"bbb"},{id:3,name:"student3"}]
+    students:Student[]=[
+      {id:1,name:"student1",description:"aaa",done:true},
+      {id:2,name:"student2",description:"bbb",done:false},
+      {id:3,name:"student3" ,done:true}]
     
     deleteStudent(student:Student){
       let indexToDelete=this.students.indexOf(student);
