@@ -1,0 +1,43 @@
+<div class="card" *ngIf="student">
+    <div class="card-body">
+        <form [formGroup]="studentForm">
+            <div class="form-group">
+                <label for="name">Student name:</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <ng-container *ngIf="studentForm.controls['name'].errors">
+                    <div class="alert alert-danger" *ngIf="studentForm.controls['name'].errors['required']"> This field is
+                        required</div>
+                    <div class="alert alert-danger" *ngIf="studentForm.controls['name'].errors['minlength']"> This field
+                        has to be at least 3 chars</div>
+
+                </ng-container>
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="description">Student description:</label>
+                <input type="text" class="form-control" id="description" formControlName="description">
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="grade">Student Grade:</label>
+                <br>
+                <input type="radio" value="grade.First" name="grade" formControlName="grade" />First
+                <br>
+                <input type="radio" value="grade.Second" name="grade" formControlName="grade" />Second
+                <br>
+                <input type="radio" value="grade.Third" name="grade" formControlName="grade" />Third
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="teacherId">Teacher:</label>
+                <select class="form-control" formControlName="teacherId">
+                    <option *ngFor="let teacher of teacherList" [value]="teacher.id">{{teacher.name}}</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" (click)="saveNewStudent()" [disabled]="!studentForm.valid">Save</button>
+        </form>
+
+    </div>
+
+</div>

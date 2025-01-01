@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Student } from '../student.model';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'student-list',
@@ -7,10 +8,7 @@ import { Student } from '../student.model';
 })
 export class StudentListComponent {
 
-    students:Student[]=[
-      {id:1,name:"student1",description:"aaa",done:true},
-      {id:2,name:"student2",description:"bbb",done:false},
-      {id:3,name:"student3" ,done:true}]
+    students:Student[]=this._studentService.getStudents()
     
     deleteStudent(student:Student){
       let indexToDelete=this.students.indexOf(student);
@@ -28,8 +26,23 @@ export class StudentListComponent {
 
     }
 
-    addNewStudentToList(studentToAdd:Student){
-      this.students.push(studentToAdd)
+    saveStudentToList(studentToSave:Student){
+      if(studentToSave.id==0){
+        studentToSave.id=this.students.length+1;
+        this.students.push(studentToSave)
+    }
+      else{
+        let studentToUpdate=this.students.filter(x=>x.id==studentToSave.id)[0];
+        let index=this.students.indexOf(studentToUpdate);
+        this.students[index]=studentToSave;
+      }
       this.selectedStudent=null as any;
+    }
+
+    constructor(private _studentService:StudentService){
+      this._studentService.getStudentsSlowly().then((studentList)=>{
+        console.log(studentList)
+        // this.students=studentList;
+      })
     }
 }
