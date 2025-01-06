@@ -6,9 +6,10 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { StudentListFormMdComponent } from './student-list-form-md/student-list-form-md.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StudentService } from "./student.service";
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
-    declarations:[AppComponent, StudentListComponent, StudentDetailsComponent, StudentListFormMdComponent],
+    declarations:[AppComponent, StudentListComponent, StudentDetailsComponent, StudentListFormMdComponent, ObservableDemoComponent],
     imports:[BrowserModule,ReactiveFormsModule],
     providers:[StudentService],
     bootstrap:[AppComponent]
