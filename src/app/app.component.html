@@ -1,8 +1,25 @@
 <div class="container">
-    <h1>{{title}}</h1>
+    <h1>Hello from my-app</h1> 
+
+    <ul>
+        <li>
+            <a routerLink="home">Link to Home Page</a>
+        </li>
+        <li>
+            <a routerLink="students">Link to Student List</a>
+        </li>
+        <li>
+            <a routerLink="teachers">Link to Teachers List</a>
+        </li>
+        <li>
+            <a routerLink="abc">Link to Error Page</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
+   <!-- <h1>{{title}}</h1>
     <br/>
     <h2>{{x}}</h2>
     
     <student-list></student-list>
-    <observable-demo></observable-demo>
+    <observable-demo></observable-demo> -->
 </div>

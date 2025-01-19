@@ -4,4 +4,7 @@ export class Teacher{
     
 }
 
-export const APP_TEACHERS:Teacher[]=[{id:1,name:"Sara"},{id:2,name:"Chana"},{id:3,name:"Rivka"}]
+export const APP_TEACHERS:Teacher[]=[
+    {id:1,name:"Sara"},
+    {id:2,name:"Chana"},
+    {id:3,name:"Rivka"}]

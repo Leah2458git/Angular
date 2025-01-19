@@ -1,0 +1,10 @@
+<p>teachers works!</p>
+<h1>Teacher List:</h1>
+
+<ul>
+    <li *ngFor="let teacher of teachers">
+        {{teacher.name}}
+        <br/>
+        <a routerLink="/students/{{teacher.id}}">Mrs. {{teacher.name}} Students</a>
+    </li>
+</ul>

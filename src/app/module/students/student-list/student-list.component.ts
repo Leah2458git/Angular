@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Student } from '../student.model';
 import { StudentService } from '../student.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'student-list',
   templateUrl: './student-list.component.html'
 })
-export class StudentListComponent {
+export class StudentListComponent implements OnInit{
 
     students!:Student[];//=this._studentService.getStudents()
     
@@ -51,9 +52,29 @@ export class StudentListComponent {
 
     }
 
-    constructor(private _studentService:StudentService){
-      this._studentService.getStudentsFromServer().subscribe(data=>
-        this.students=data
-      )
+    constructor(private _studentService:StudentService,private _acr:ActivatedRoute){
+      
     }
+    teacherId!:number;
+
+    ngOnInit(): void {
+
+      this._acr.paramMap.subscribe(paramMap=>{
+        if(paramMap.has("id")){
+          this.teacherId=Number(paramMap.get("id"))
+        }
+      })
+
+      this._studentService.getStudentsFromServer().subscribe(data=>{
+        if(this.teacherId){
+          this.students=data.filter(student=>student.teacherId==this.teacherId)
+        }
+        else
+          this.students=data
+        }
+      )
+      
+      
+    }
+    
 }
