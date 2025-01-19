@@ -2,6 +2,7 @@ export class Student{
     id!:number ;
     name!:string;
     description?:string;
+    active!:boolean;
     grade?:Grade;
     teacherId?:number;
     

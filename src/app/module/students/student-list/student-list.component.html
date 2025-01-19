@@ -1,8 +1,12 @@
 <h2>students:</h2>
+
+Show only active Students: 
+<input type="checkbox" #chb (change)="showStudentsByActive(chb.checked)"/>
+
 <ul class="list-group">
     <li *ngFor = "let student of students" class="list-group-item" 
-    [ngClass]="{'active': selectedStudent && student.id==selectedStudent.id
-    }"> 
+    [ngClass]="{'active': selectedStudent && student.id==selectedStudent.id,
+        'list-group-item-success':student.active}"> 
         <div class="row">
             <div class="col-1">{{student.id}}</div>
             <div class="col-3">{{student.name}}</div>
@@ -21,6 +25,9 @@
 <br/>
 
 <button class="btn btn-primary" (click)="showNewStudentDetails()">Add New Student</button>
+<br/>
+<br/>
+<button class="btn btn-success" (click)="SaveStudentsToServer()">Save all student details</button>
 
 <br/>
 

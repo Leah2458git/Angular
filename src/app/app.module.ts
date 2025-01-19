@@ -1,17 +1,14 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from "./app.component";
-import { StudentListComponent } from './student-list/student-list.component';
-import { StudentDetailsComponent } from './student-details/student-details.component';
-import { StudentListFormMdComponent } from './student-list-form-md/student-list-form-md.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StudentService } from "./student.service";
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { studentModule } from "./module/students/student.module";
 
 @NgModule({
-    declarations:[AppComponent, StudentListComponent, StudentDetailsComponent, StudentListFormMdComponent, ObservableDemoComponent],
-    imports:[BrowserModule,ReactiveFormsModule],
-    providers:[StudentService],
+    declarations:[AppComponent, ObservableDemoComponent],
+    imports:[BrowserModule,studentModule],
     bootstrap:[AppComponent]
 
 })

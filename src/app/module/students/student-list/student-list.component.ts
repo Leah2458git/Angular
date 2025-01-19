@@ -8,7 +8,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentListComponent {
 
-    students:Student[]=this._studentService.getStudents()
+    students!:Student[];//=this._studentService.getStudents()
     
     deleteStudent(student:Student){
       let indexToDelete=this.students.indexOf(student);
@@ -38,11 +38,22 @@ export class StudentListComponent {
       }
       this.selectedStudent=null as any;
     }
+    showStudentsByActive(active:boolean){
+      this._studentService.getStudentsByDone(active).subscribe(data=>
+        this.students=data
+      );
+    }
+    SaveStudentsToServer(){
+      this._studentService.SaveAllStudents(this.students).subscribe(data=>{
+        if(data)
+          alert("Save Success")
+      });
+
+    }
 
     constructor(private _studentService:StudentService){
-      this._studentService.getStudentsSlowly().then((studentList)=>{
-        console.log(studentList)
-        // this.students=studentList;
-      })
+      this._studentService.getStudentsFromServer().subscribe(data=>
+        this.students=data
+      )
     }
 }

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Grade, Student } from '../student.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Teacher ,APP_TEACHERS} from '../teacher.mode';
+import { Teacher ,APP_TEACHERS} from '../teacher.model';
 
 @Component({
   selector: 'student-list-form-md',
@@ -30,7 +30,8 @@ export class StudentListFormMdComponent {
         "description":new FormControl(this.student.description,Validators.required),
         "id":new FormControl(this.student.id),
         "grade":new FormControl(this.student.grade,Validators.required),
-        "teacherId":new FormControl(this.student.teacherId)
+        "teacherId":new FormControl(this.student.teacherId),
+        "active":new FormControl(this.student.active)
       })
     }
     
