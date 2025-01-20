@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { DemoDirectiveComponent } from './demo-directive/demo-directive.component';
+import { PulseDirective } from "./pulse.directive";
 
 
 
 
 
 @NgModule({
-    declarations:[AppComponent, ObservableDemoComponent, HomeComponent, PageNotFoundComponent, TeachersComponent],
+    declarations:[AppComponent, ObservableDemoComponent, HomeComponent, PageNotFoundComponent, TeachersComponent, DemoDirectiveComponent,PulseDirective],
     imports:[BrowserModule,studentModule,AppRoutingModule],
     bootstrap:[AppComponent]
 
